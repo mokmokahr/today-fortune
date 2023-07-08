@@ -1,4 +1,5 @@
 <script>
+    import { flippedNum } from "../store";
     import { goto } from "$app/navigation";
     let flipped1 = 0,flipped2 = 0,flipped3 = 0;
 </script>
@@ -10,8 +11,8 @@
             <div class="card" id="card1">
                 {#if flipped1 == 0}
                 <img src="https://i.pinimg.com/550x/27/51/58/275158db57cd8482c3fc6d3a3d0cd353.jpg" alt="" on:click={()=>{flipped1++}}>
-                {:else if flipped1== 1}
-                <img src="https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&osplang=1&cid=7125&ciid=1&enc=AYEOx4NClwLY1x25vWVFPQ&app=tournament&request_locale=ko" alt="A" on:click={()=>{goto('/result')}}>
+                {:else}
+                <img src="images/happy_card.png" alt="A" on:click={()=>{flippedNum.set(1);goto('/result')}}>
                 <p>카드를 클릭해보세요!</p>
                 {/if}
             </div>
@@ -19,8 +20,8 @@
             <div class="card" id="card2">
                 {#if flipped2 == 0}
                 <img src="https://i.pinimg.com/550x/27/51/58/275158db57cd8482c3fc6d3a3d0cd353.jpg" alt="" on:click={()=>{flipped2++}}>
-                {:else}
-                <img src="https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&osplang=1&cid=7125&ciid=1&enc=AYEOx4NClwLY1x25vWVFPQ&app=tournament&request_locale=ko" alt="A" on:click={()=>{goto('/result')}}>
+                {:else }
+                <img src="images/cheerup_card.png" alt="A" on:click={()=>{flippedNum.set(2);goto('/result')}}>
                 <p>카드를 클릭해보세요!</p>
                 {/if}
             </div>
@@ -28,14 +29,13 @@
                 {#if flipped3 == 0}
                 <img src="https://i.pinimg.com/550x/27/51/58/275158db57cd8482c3fc6d3a3d0cd353.jpg" alt="" on:click={()=>{flipped3++}}>
                 {:else}
-                <img src="https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&osplang=1&cid=7125&ciid=1&enc=AYEOx4NClwLY1x25vWVFPQ&app=tournament&request_locale=ko" alt="A" on:click={()=>{goto('/result')}}>
+                <img src="images/amazing_card.png" alt="A" on:click={()=>{flippedNum.set(3);goto('/result')}}>
                 <p>카드를 클릭해보세요!</p>
                 {/if}
             </div>
     </div>
     <div id="footer">
         <p id="crevice">@crevice</p>
-        <p id="person">개발:WP목정빈 디자인:WP전주언</p>
     </div>
 </div>
 <style>
@@ -95,8 +95,5 @@
     }
     p#crevice{
         font-family: 'Cafe24ClassicType-Regular';
-    }
-    p#person{
-        font-size: 0.7rem;
     }
 </style>
